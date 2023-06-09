@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem
+        id="menu_registrations_root"
+        name="Course management"
+        sequence="10" />
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cm_edition_addon" model="ir.ui.view">
+        <field name="name">view.edition.addon</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Sessions" groups="base.group_no_one">
+                    <field name="session_field_ids">
+                        <tree editable="bottom">
+                            <field name="date_time"/>
+                            <field name="location"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_cm_editions">
+        <field name="name">Editions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_editions"
+        name="Courses"
+        sequence="10"
+        action="action_cm_editions"
+        parent="menu_registrations_root"
+    />
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_cm_registration_form">
+        <field name="name">cm.registration.form</field>
+        <field name="model">cm.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product" string="Course" />
+                        <field name="student" />
+                        <field name="start_date" readonly="1" />
+                        <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cm_registration_tree">
+        <field name="name">cm.registration.tree</field>
+        <field name="model">cm.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product" />
+                <field name="student" />
+                <field name="start_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_cm_registrations">
+        <field name="name">Registrations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.registration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_registrations"
+        name="Registrations"
+        sequence="30"
+        action="action_cm_registrations"
+        parent="menu_registrations_root"
+    />
+</odoo>

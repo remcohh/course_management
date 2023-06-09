@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cm_session_form" model="ir.ui.view">
+        <field name="name">cm.session.form</field>
+        <field name="model">cm.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product" />
+                        <field name="date_time" />
+                        <field name="location" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cm_session_tree" model="ir.ui.view">
+        <field name="name">cm.session.tree</field>
+        <field name="model">cm.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product" />
+                <field name="date_time" />
+                <field name="location" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cm_session_calendar" model="ir.ui.view">
+        <field name="name">cm.session.calendar</field>
+        <field name="model">cm.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Session Calendar" date_start="date_time" quick_add="False">
+                <field name="product"/>
+                <field name="location"/>
+                <field name="date_time"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_cm_sessions" model="ir.actions.act_window" >
+        <field name="name">Sessions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.session</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_sessions"
+        name="Sessions"
+        sequence="40"
+        action="action_cm_sessions"
+        parent="menu_registrations_root"
+    />
+</odoo>

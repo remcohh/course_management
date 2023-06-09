@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cm_registration,cm_registration,model_cm_registration,base.group_user,1,1,1,1
+cm_student,cm_student,model_cm_student,base.group_user,1,1,1,1
+cm_session,cm_session,model_cm_session,base.group_user,1,1,1,1

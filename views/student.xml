@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_cm_student_form">
+        <field name="name">cm.student.form</field>
+        <field name="model">cm.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner" />
+                        <field name="name" />
+                        <field name="student_type" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cm_student_tree">
+        <field name="name">cm.student.tree</field>
+        <field name="model">cm.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner" />
+                <field name="student_type" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_cm_students">
+        <field name="name">Students</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_students"
+        name="Students"
+        sequence="20"
+        action="action_cm_students"
+        parent="menu_registrations_root"
+    />
+</odoo>
