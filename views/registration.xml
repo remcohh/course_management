@@ -10,9 +10,18 @@
                     <group>
                         <field name="product" string="Course" />
                         <field name="student" />
-                        <field name="start_date" readonly="1" />
                         <field name="status" />
                     </group>
+                    <notebook>
+                        <page string="Attendance">
+                            <field name="attendance_ids">
+                                <tree string="Tree String">
+                                    <field name="session" />
+                                    <field name="present" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -25,7 +34,6 @@
             <tree>
                 <field name="product" />
                 <field name="student" />
-                <field name="start_date" />
             </tree>
         </field>
     </record>

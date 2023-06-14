@@ -1,6 +1,28 @@
 <odoo>
+    <record model="ir.actions.act_window" id="action_cm_ecommerce_products">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem
         id="menu_registrations_root"
         name="Course management"
         sequence="10" />
+
+    <menuitem
+        id="menu_cm_ecommerce"
+        name="Ecommerce"
+        sequence="60"
+        parent="menu_registrations_root"
+    />
+
+    <menuitem
+        id="maction_cm_ecommerce_products"
+        name="Products"
+        sequence="60"
+        action="action_cm_registrations"
+        parent="menu_cm_ecommerce"
+    />
 </odoo>

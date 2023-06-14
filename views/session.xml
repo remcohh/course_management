@@ -12,6 +12,16 @@
                         <field name="date_time" />
                         <field name="location" />
                     </group>
+                    <notebook>
+                        <page string="Attendance">
+                            <field name="attendance_ids">
+                                <tree string="Tree String">
+                                    <field name="registration" />
+                                    <field name="present" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -34,14 +44,14 @@
         <field name="model">cm.session</field>
         <field name="arch" type="xml">
             <calendar string="Session Calendar" date_start="date_time" quick_add="False">
-                <field name="product"/>
-                <field name="location"/>
-                <field name="date_time"/>
+                <field name="product" />
+                <field name="location" />
+                <field name="date_time" />
             </calendar>
         </field>
     </record>
 
-    <record id="action_cm_sessions" model="ir.actions.act_window" >
+    <record id="action_cm_sessions" model="ir.actions.act_window">
         <field name="name">Sessions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">cm.session</field>

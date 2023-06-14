@@ -15,6 +15,7 @@
         "views/registration.xml",
         "views/student.xml",
         "views/edition.xml",
-        "views/session.xml"
+        "views/session.xml",
+        "views/attendance.xml"
     ],
 }

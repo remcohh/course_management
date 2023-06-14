@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cm_attendance_form" model="ir.ui.view">
+        <field name="name">cm.attendance.form</field>
+        <field name="model">cm.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="session" />
+                        <field name="registration" />
+                        <field name="present" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cm_attendance_tree" model="ir.ui.view">
+        <field name="name">cm.attendance.tree</field>
+        <field name="model">cm.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="session" />
+                <field name="registration" />
+                <field name="present" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cm_attendances" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.attendance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_attendances"
+        name="Attendance"
+        sequence="50"
+        action="action_cm_attendances"
+        parent="menu_registrations_root"
+    />
+</odoo>
