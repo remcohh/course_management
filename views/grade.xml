@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cm_grade_form" model="ir.ui.view">
+        <field name="name">cm.grade.form</field>
+        <field name="model">cm.grade</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="registration" />
+                        <field name="test" />
+                        <field name="grade" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cm_grade_tree" model="ir.ui.view">
+        <field name="name">cm.grade.tree</field>
+        <field name="model">cm.grade</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="registration" />
+                <field name="test" />
+                <field name="grade" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cm_grades" model="ir.actions.act_window">
+        <field name="name">Grade</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.grade</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_grades"
+        name="Grades"
+        sequence="60"
+        action="action_cm_grades"
+        parent="menu_registrations_root"
+    />
+</odoo>

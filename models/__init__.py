@@ -1,1 +1,1 @@
-from . import edition, student, registration, session, attendance
+from . import edition, student, registration, session, attendance, grade, test

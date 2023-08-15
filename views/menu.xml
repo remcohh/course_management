@@ -14,7 +14,7 @@
     <menuitem
         id="menu_cm_ecommerce"
         name="Ecommerce"
-        sequence="60"
+        sequence="100"
         parent="menu_registrations_root"
     />
 

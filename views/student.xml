@@ -12,7 +12,23 @@
                         <field name="name" />
                         <field name="student_type" />
                     </group>
+                    <notebook>
+                        <page string="Cursussen">
+                            <field name="registration_ids">
+                                <tree string="Tree String">
+                                    <field name="product" />
+                                    <field name="start_date" />
+                                    <field name="status" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>

@@ -17,10 +17,19 @@
                             <field name="attendance_ids">
                                 <tree string="Tree String">
                                     <field name="session" />
+                                    <field name="start_date" />
                                     <field name="present" />
                                 </tree>
                             </field>
                         </page>
+                        <page string="Grades">
+                            <field name="grade_ids">
+                                <tree string="Tree String">
+                                    <field name="test" />
+                                    <field name="grade" />
+                                </tree>
+                            </field>
+                        </page>                        
                     </notebook>
                 </sheet>
             </form>

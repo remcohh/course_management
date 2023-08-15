@@ -9,6 +9,7 @@ class CmRegistration(models.Model):
     status = fields.Selection([('Not started', 'Not started')])
     reg_title = fields.Char(compute='_compute_fields_combination')
     attendance_ids = fields.One2many('cm.attendance', 'registration')
+    grade_ids = fields.One2many('cm.grade', 'registration')
 
     @api.depends('student', 'product')
     def _compute_fields_combination(self):
