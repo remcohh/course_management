@@ -18,11 +18,11 @@
         parent="menu_registrations_root"
     />
 
-    <menuitem
+    <!-- <menuitem
         id="maction_cm_ecommerce_products"
         name="Products"
         sequence="60"
         action="action_cm_registrations"
         parent="menu_cm_ecommerce"
-    />
+    /> -->
 </odoo>
