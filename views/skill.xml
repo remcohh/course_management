@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cm_skill_tree" model="ir.ui.view">
+        <field name="name">cm.skill.tree</field>
+        <field name="model">cm.skill</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="1" delete="1">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cm_skills" model="ir.actions.act_window">
+        <field name="name">skill</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.skill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_skills"
+        name="Skills"
+        sequence="80"
+        action="action_cm_skills"
+        parent="menu_registrations_root"
+    />
+</odoo>

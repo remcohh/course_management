@@ -5,3 +5,5 @@ cm_session,cm_session,model_cm_session,base.group_user,1,1,1,1
 cm_attendance,cm_attendance,model_cm_attendance,base.group_user,1,1,1,1
 cm_grade,cm_grade,model_cm_grade,base.group_user,1,1,1,1
 cm_test,cm_test,model_cm_test,base.group_user,1,1,1,1
+cm_teacher,cm_teacher,model_cm_teacher,base.group_user,1,1,1,1
+cm_skill,cm_skill,model_cm_skill,base.group_user,1,1,1,1

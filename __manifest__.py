@@ -18,6 +18,8 @@
         "views/session.xml",
         "views/attendance.xml",
         "views/grade.xml",
-        "views/test.xml"
+        "views/test.xml",
+        "views/teacher.xml",
+        "views/skill.xml",
     ],
 }

@@ -15,7 +15,7 @@
                     <notebook>
                         <page string="Cursussen">
                             <field name="registration_ids">
-                                <tree string="Tree String">
+                                <tree editable="bottom" create="1" edit="1">
                                     <field name="product" />
                                     <field name="start_date" />
                                     <field name="status" />

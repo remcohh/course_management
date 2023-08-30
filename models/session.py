@@ -5,6 +5,7 @@ class CmSession(models.Model):
     _inherits = {'product.product': 'product'}
     _rec_name = 'res_title'
     product = fields.Many2one("product.product")
+    teacher = fields.Many2one("cm.teacher")
     attendance_ids = fields.One2many('cm.attendance', 'session', string="attendance IDS")
     date_time = fields.Datetime()
     location = fields.Char()
