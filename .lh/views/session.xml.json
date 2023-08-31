@@ -1,0 +1,30 @@
+{
+    "sourceFile": "views/session.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1693466907046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1693471754557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n                     </group>\n                     <notebook>\n                         <page string=\"Attendance\">\n                             <field name=\"attendance_ids\">\n-                                <tree editable=\"bottom\" string=\"Tree String\">\n-                                    <field name=\"registration\" />\n+                                <tree editable=\"bottom\">\n+                                    <field name=\"student\" />\n                                     <field name=\"present\" />\n                                 </tree>\n                             </field>\n                         </page>\n"
+                },
+                {
+                    "date": 1693471938372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n                         <field name=\"product\" />\n                         <field name=\"date_time\" />\n                         <field name=\"location\" />\n                         <field name=\"teacher\" />\n+                        \n                     </group>\n                     <notebook>\n                         <page string=\"Attendance\">\n                             <field name=\"attendance_ids\">\n"
+                },
+                {
+                    "date": 1693471944763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n                         <field name=\"product\" />\n                         <field name=\"date_time\" />\n                         <field name=\"location\" />\n                         <field name=\"teacher\" />\n-                        \n+                        <field name=\"completed\" />\n+\n                     </group>\n                     <notebook>\n                         <page string=\"Attendance\">\n                             <field name=\"attendance_ids\">\n"
+                }
+            ],
+            "date": 1693466907046,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<odoo>\n\n    <record id=\"view_cm_session_form\" model=\"ir.ui.view\">\n        <field name=\"name\">cm.session.form</field>\n        <field name=\"model\">cm.session</field>\n        <field name=\"arch\" type=\"xml\">\n            <form>\n                <sheet>\n                    <group>\n                        <field name=\"product\" />\n                        <field name=\"date_time\" />\n                        <field name=\"location\" />\n                        <field name=\"teacher\" />\n                    </group>\n                    <notebook>\n                        <page string=\"Attendance\">\n                            <field name=\"attendance_ids\">\n                                <tree editable=\"bottom\" string=\"Tree String\">\n                                    <field name=\"registration\" />\n                                    <field name=\"present\" />\n                                </tree>\n                            </field>\n                        </page>\n                    </notebook>\n                </sheet>\n            </form>\n        </field>\n    </record>\n\n    <record id=\"view_cm_session_tree\" model=\"ir.ui.view\">\n        <field name=\"name\">cm.session.tree</field>\n        <field name=\"model\">cm.session</field>\n        <field name=\"arch\" type=\"xml\">\n            <tree>\n                <field name=\"product\" />\n                <field name=\"date_time\" />\n                <field name=\"location\" />\n                <field name=\"teacher\" />\n            </tree>\n        </field>\n    </record>\n\n    <record id=\"view_cm_session_calendar\" model=\"ir.ui.view\">\n        <field name=\"name\">cm.session.calendar</field>\n        <field name=\"model\">cm.session</field>\n        <field name=\"arch\" type=\"xml\">\n            <calendar string=\"Session Calendar\" date_start=\"date_time\" quick_add=\"False\">\n                <field name=\"product\" />\n                <field name=\"location\" />\n                <field name=\"date_time\" />\n            </calendar>\n        </field>\n    </record>\n\n    <record id=\"action_cm_sessions\" model=\"ir.actions.act_window\">\n        <field name=\"name\">Sessions</field>\n        <field name=\"type\">ir.actions.act_window</field>\n        <field name=\"res_model\">cm.session</field>\n        <field name=\"view_mode\">tree,form,calendar</field>\n    </record>\n\n    <menuitem\n        id=\"menu_cm_sessions\"\n        name=\"Sessions\"\n        sequence=\"40\"\n        action=\"action_cm_sessions\"\n        parent=\"menu_cm_root\"\n    />\n</odoo>"
+        }
+    ]
+}

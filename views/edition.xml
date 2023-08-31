@@ -44,6 +44,6 @@
         name="Courses"
         sequence="10"
         action="action_cm_editions"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 </odoo>

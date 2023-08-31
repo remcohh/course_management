@@ -1,0 +1,90 @@
+{
+    "sourceFile": "models/registration.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1693471040096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1693471068917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,17 @@\n     def _compute_fields_combination(self):\n         for t in self:\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n+    @api.model\n+    def create(self, vals):\n+        student = super(FanfareOrchestraMember, self).create(vals)\n+        sessions = self.env['fanfare.session'].search(\n+            [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+        if sessions:\n+            AttendanceModel = self.env['fanfare.attendance']\n+            attendance_records = []\n+            for session in sessions:\n+                attendance_records.append(AttendanceModel.create(\n+                    {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n+        return orchestra_member            \n \n"
+                },
+                {
+                    "date": 1693471077281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n     @api.model\n     def create(self, vals):\n-        student = super(FanfareOrchestraMember, self).create(vals)\n+        student = super(CmSt, self).create(vals)\n         sessions = self.env['fanfare.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693471090619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n     @api.model\n     def create(self, vals):\n-        student = super(CmSt, self).create(vals)\n+        student = super(CmStudent, self).create(vals)\n         sessions = self.env['fanfare.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693471128312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n     @api.model\n     def create(self, vals):\n-        student = super(CmStudent, self).create(vals)\n+        student = super(FanfareOrchestraMember, self).create(vals)\n         sessions = self.env['fanfare.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693471136388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n     @api.model\n     def create(self, vals):\n-        student = super(FanfareOrchestraMember, self).create(vals)\n+        student = super(CmRegistration, self).create(vals)\n         sessions = self.env['fanfare.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693471145550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             t.reg_title = t.student.name + ' / ' + t.product.name\n             \n     @api.model\n     def create(self, vals):\n-        student = super(CmRegistration, self).create(vals)\n+        registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['fanfare.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693471168379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             \n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n-        sessions = self.env['fanfare.session'].search(\n+        sessions = self.env['cm.session'].search(\n             [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n"
+                },
+                {
+                    "date": 1693471191083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n-            [('orchestra', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+            [('product', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for session in sessions:\n"
+                },
+                {
+                    "date": 1693471238121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n-            [('product', '=', orchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+            [('product', '=', sessorchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for session in sessions:\n"
+                },
+                {
+                    "date": 1693471250671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n-            [('product', '=', sessorchestra_member.orchestra.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+            [('product', '=', registration.pr), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for session in sessions:\n"
+                },
+                {
+                    "date": 1693471282491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n-            [('product', '=', registration.pr), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+            [('product', '=', registration.prod), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for session in sessions:\n"
+                },
+                {
+                    "date": 1693471296598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     @api.model\n     def create(self, vals):\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n-            [('product', '=', registration.prod), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n+            [('product', '=', registration.product.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for session in sessions:\n"
+                },
+                {
+                    "date": 1693471315699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n from odoo import fields, models, api\n+from datetime import datetime\n+\n class CmRegistration(models.Model):\n     _name = \"cm.registration\"\n     _description = \"Registration model\"\n     _inherits = {\"product.product\": \"product\"}\n"
+                },
+                {
+                    "date": 1693471325434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         registration = super(CmRegistration, self).create(vals)\n         sessions = self.env['cm.session'].search(\n             [('product', '=', registration.product.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])\n         if sessions:\n-            AttendanceModel = self.env['fanfare.attendance']\n+            AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for session in sessions:\n                 attendance_records.append(AttendanceModel.create(\n                     {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n"
+                },
+                {
+                    "date": 1693471372652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for session in sessions:\n                 attendance_records.append(AttendanceModel.create(\n-                    {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n+                    {\"regist\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n         return orchestra_member            \n \n"
+                },
+                {
+                    "date": 1693471383791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for session in sessions:\n                 attendance_records.append(AttendanceModel.create(\n-                    {\"regist\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n+                    {\"registration\": registration.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n         return orchestra_member            \n \n"
+                },
+                {
+                    "date": 1693471391921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,7 @@\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for session in sessions:\n                 attendance_records.append(AttendanceModel.create(\n-                    {\"registration\": registration.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n+                    {\"registration\": registration.id, \"session\": session.id}))\n         return orchestra_member            \n \n"
+                },
+                {
+                    "date": 1693471398981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,6 @@\n             attendance_records = []\n             for session in sessions:\n                 attendance_records.append(AttendanceModel.create(\n                     {\"registration\": registration.id, \"session\": session.id}))\n-        return orchestra_member            \n+        return registration            \n \n"
+                }
+            ],
+            "date": 1693471040095,
+            "name": "Commit-0",
+            "content": "from odoo import fields, models, api\nclass CmRegistration(models.Model):\n    _name = \"cm.registration\"\n    _description = \"Registration model\"\n    _inherits = {\"product.product\": \"product\"}\n    _rec_name = 'reg_title'\n    product = fields.Many2one('product.product')\n    student = fields.Many2one('cm.student')\n    status = fields.Selection([('Not started', 'Not started')])\n    reg_title = fields.Char(compute='_compute_fields_combination')\n    attendance_ids = fields.One2many('cm.attendance', 'registration')\n    grade_ids = fields.One2many('cm.grade', 'registration')\n\n    @api.depends('student', 'product')\n    def _compute_fields_combination(self):\n        for t in self:\n            t.reg_title = t.student.name + ' / ' + t.product.name\n            \n\n"
+        }
+    ]
+}

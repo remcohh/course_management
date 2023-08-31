@@ -21,5 +21,6 @@
         "views/test.xml",
         "views/teacher.xml",
         "views/skill.xml",
+        "views/location.xml",
     ],
 }

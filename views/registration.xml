@@ -59,6 +59,6 @@
         name="Registrations"
         sequence="30"
         action="action_cm_registrations"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 </odoo>

@@ -12,12 +12,13 @@
                         <field name="date_time" />
                         <field name="location" />
                         <field name="teacher" />
+                        <field name="completed" />
                     </group>
                     <notebook>
                         <page string="Attendance">
                             <field name="attendance_ids">
-                                <tree string="Tree String">
-                                    <field name="registration" />
+                                <tree editable="bottom">
+                                    <field name="student" />
                                     <field name="present" />
                                 </tree>
                             </field>
@@ -65,6 +66,6 @@
         name="Sessions"
         sequence="40"
         action="action_cm_sessions"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 </odoo>

@@ -1,0 +1,66 @@
+{
+    "sourceFile": "models/session.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1693466157869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1693466163519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         for t in self:\n             t.res_title = t.date_time.strftime(\"%d-%m-%Y, %H:%M\") + ' / ' + t.product.name\n             \n             \n-                @api.model\n+    @api.model\n     def create(self, vals):\n         session = super(FanfareSession, self).create(vals)\n         orchestra_members = self.env['fanfare.orchestra_member'].search(\n             [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n"
+                },
+                {
+                    "date": 1693466174552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             \n             \n     @api.model\n     def create(self, vals):\n-        session = super(FanfareSession, self).create(vals)\n+        session = super(CmSession, self).create(vals)\n         orchestra_members = self.env['fanfare.orchestra_member'].search(\n             [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n"
+                },
+                {
+                    "date": 1693466281600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n             \n     @api.model\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n-        orchestra_members = self.env['fanfare.orchestra_member'].search(\n+        registrations = self.env['fanfare.orchestra_member'].search(\n             [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n"
+                },
+                {
+                    "date": 1693466291649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n             \n     @api.model\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n-        registrations = self.env['fanfare.orchestra_member'].search(\n+        registrations = self.env['cm.registration'].search(\n             [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n"
+                },
+                {
+                    "date": 1693466319593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     @api.model\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n         registrations = self.env['cm.registration'].search(\n-            [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n+            [('product', '=', session.orchestra.id), ('member.status', '=', 'active')])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for orchestra_member in orchestra_members:\n"
+                },
+                {
+                    "date": 1693466328354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     @api.model\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n         registrations = self.env['cm.registration'].search(\n-            [('product', '=', session.orchestra.id), ('member.status', '=', 'active')])\n+            [('product', '=', session.product), ('member.status', '=', 'active')])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for orchestra_member in orchestra_members:\n"
+                },
+                {
+                    "date": 1693466335942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     @api.model\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n         registrations = self.env['cm.registration'].search(\n-            [('product', '=', session.product), ('member.status', '=', 'active')])\n+            [('product', '=', session.product)])\n         if orchestra_members:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for orchestra_member in orchestra_members:\n"
+                },
+                {
+                    "date": 1693466341539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     def create(self, vals):\n         session = super(CmSession, self).create(vals)\n         registrations = self.env['cm.registration'].search(\n             [('product', '=', session.product)])\n-        if orchestra_members:\n+        if registrations:\n             AttendanceModel = self.env['fanfare.attendance']\n             attendance_records = []\n             for orchestra_member in orchestra_members:\n                 attendance_records.append(AttendanceModel.create(\n"
+                },
+                {
+                    "date": 1693466348882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         session = super(CmSession, self).create(vals)\n         registrations = self.env['cm.registration'].search(\n             [('product', '=', session.product)])\n         if registrations:\n-            AttendanceModel = self.env['fanfare.attendance']\n+            AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for orchestra_member in orchestra_members:\n                 attendance_records.append(AttendanceModel.create(\n                     {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n"
+                },
+                {
+                    "date": 1693466359509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             [('product', '=', session.product)])\n         if registrations:\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n-            for orchestra_member in orchestra_members:\n+            for registrations in orchestra_members:\n                 attendance_records.append(AttendanceModel.create(\n                     {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n         return session\n \n"
+                },
+                {
+                    "date": 1693466367104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             [('product', '=', session.product)])\n         if registrations:\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n-            for registrations in orchestra_members:\n+            for registration inregistrations:\n                 attendance_records.append(AttendanceModel.create(\n                     {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n         return session\n \n"
+                },
+                {
+                    "date": 1693466406771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n             AttendanceModel = self.env['cm.attendance']\n             attendance_records = []\n             for registration in registrations:\n                 attendance_records.append(AttendanceModel.create(\n-                    {\"reg\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n+                    {\"regi\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n         return session\n \n     \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1693466157869,
+            "name": "Commit-0",
+            "content": "from odoo import fields, models, api\n\nclass CmSession(models.Model):\n    _name = \"cm.session\"\n    _inherits = {'product.product': 'product'}\n    _rec_name = 'res_title'\n    product = fields.Many2one(\"product.product\")\n    teacher = fields.Many2one(\"cm.teacher\")\n    location = fields.Many2one(\"cm.location\")\n    attendance_ids = fields.One2many('cm.attendance', 'session', string=\"attendance IDS\")\n    date_time = fields.Datetime()\n    res_title = fields.Char(compute='_compute_fields_combination')\n\n    @api.depends('date_time', 'product')\n    def _compute_fields_combination(self):\n        for t in self:\n            t.res_title = t.date_time.strftime(\"%d-%m-%Y, %H:%M\") + ' / ' + t.product.name\n            \n            \n                @api.model\n    def create(self, vals):\n        session = super(FanfareSession, self).create(vals)\n        orchestra_members = self.env['fanfare.orchestra_member'].search(\n            [('orchestra', '=', session.orchestra.id), ('member.status', '=', 'active')])\n        if orchestra_members:\n            AttendanceModel = self.env['fanfare.attendance']\n            attendance_records = []\n            for orchestra_member in orchestra_members:\n                attendance_records.append(AttendanceModel.create(\n                    {\"orchestra_member\": orchestra_member.id, \"session\": session.id, \"state\": session.default_attendance_state}))\n        return session\n\n    "
+        }
+    ]
+}

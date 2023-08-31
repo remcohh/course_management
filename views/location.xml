@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cm_location_tree" model="ir.ui.view">
+        <field name="name">cm.location.tree</field>
+        <field name="model">cm.location</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cm_locations" model="ir.actions.act_window">
+        <field name="name">location</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cm.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_cm_locations"
+        name="Locations"
+        sequence="100"
+        action="action_cm_locations"
+        parent="menu_cm_configuration"
+    />
+</odoo>

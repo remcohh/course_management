@@ -7,3 +7,5 @@ cm_grade,cm_grade,model_cm_grade,base.group_user,1,1,1,1
 cm_test,cm_test,model_cm_test,base.group_user,1,1,1,1
 cm_teacher,cm_teacher,model_cm_teacher,base.group_user,1,1,1,1
 cm_skill,cm_skill,model_cm_skill,base.group_user,1,1,1,1
+cm_location,cm_location,model_cm_location,base.group_user,1,1,1,1
+

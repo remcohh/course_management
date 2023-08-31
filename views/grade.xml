@@ -41,6 +41,6 @@
         name="Grades"
         sequence="60"
         action="action_cm_grades"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 </odoo>

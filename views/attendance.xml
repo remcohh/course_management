@@ -41,6 +41,6 @@
         name="Attendance"
         sequence="50"
         action="action_cm_attendances"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 </odoo>

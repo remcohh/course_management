@@ -7,15 +7,15 @@
     </record>
 
     <menuitem
-        id="menu_registrations_root"
+        id="menu_cm_root"
         name="Course management"
         sequence="10" />
 
     <menuitem
-        id="menu_cm_ecommerce"
-        name="Ecommerce"
+        id="menu_cm_configuration"
+        name="Configuration"
         sequence="100"
-        parent="menu_registrations_root"
+        parent="menu_cm_root"
     />
 
     <!-- <menuitem

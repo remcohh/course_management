@@ -38,6 +38,6 @@
         name="Teachers"
         sequence="70"
         action="action_cm_teachers"
-        parent="menu_registrations_root"
+        parent="menu_cm_configuration"
     />
 </odoo>

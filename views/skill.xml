@@ -5,7 +5,7 @@
         <field name="name">cm.skill.tree</field>
         <field name="model">cm.skill</field>
         <field name="arch" type="xml">
-            <tree editable="bottom" create="1" delete="1">
+            <tree editable="bottom" create="1" delete="">
                 <field name="name" />
             </tree>
         </field>
@@ -23,6 +23,6 @@
         name="Skills"
         sequence="80"
         action="action_cm_skills"
-        parent="menu_registrations_root"
+        parent="menu_cm_configuration"
     />
 </odoo>

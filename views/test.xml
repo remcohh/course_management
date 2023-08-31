@@ -40,6 +40,6 @@
         name="Tests"
         sequence="70"
         action="action_cm_tests"
-        parent="menu_registrations_root"
+        parent="menu_cm_configuration"
     />
 </odoo>
