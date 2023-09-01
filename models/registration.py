@@ -7,7 +7,7 @@ class CmRegistration(models.Model):
     _inherits = {"product.product": "product"}
     _rec_name = 'reg_title'
     product = fields.Many2one('product.product')
-    student = fields.Many2one('cm.student')
+    student = fields.Many2one('cm.student', ondelete='cascade')
     status = fields.Selection([('Not started', 'Not started')])
     reg_title = fields.Char(compute='_compute_fields_combination')
     attendance_ids = fields.One2many('cm.attendance', 'registration')
