@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Course management",
     'summary': '',
-    'author': "Remco",
+    'author': "Remco Huijdts",
     'category': 'Uncategorized',
     'version': '0.1',
     'application':True,
-    # any module necessary for this one to work correctly
     'depends': ['base', 'product', 'sale'],
-    # always loaded
     'data': [
         "security/ir.model.access.csv",
         "views/menu.xml",
@@ -22,5 +19,7 @@
         "views/teacher.xml",
         "views/skill.xml",
         "views/location.xml",
+        "views/product_template.xml",
+        "views/product_stage.xml",
     ],
 }

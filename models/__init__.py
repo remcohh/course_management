@@ -1,1 +1,1 @@
-from . import edition, student, registration, session, attendance, grade, test, teacher, skill, location
+from . import edition, student, registration, session, attendance, grade, test, teacher, skill, location, product_stage, product_template

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="kanban-product-template" model="ir.ui.view">
+        <field name="name">kanban.produkt.template.extra</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">stage</attribute>
+                <attribute name="group_create">true</attribute>
+                <attribute name="quick_create">false</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem
+    id="menu_cm_ecommerce_products"
+    name="Course templates"
+    sequence="5"
+    action="action_cm_ecommerce_products"
+    parent="menu_cm_root"
+/>
+</odoo>
