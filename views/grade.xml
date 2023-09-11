@@ -8,8 +8,9 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="registration" />
-                        <field name="test" />
+                        <field name="session" />
+                        <field name="grading_profile" attrs="{'invisible': 1}"  />
+                        <field name="test" domain="[('grading_profile', '=', grading_profile)]" />
                         <field name="grade" />
                     </group>
                 </sheet>
@@ -22,7 +23,7 @@
         <field name="model">cm.grade</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="registration" />
+                <field name="session" />
                 <field name="test" />
                 <field name="grade" />
             </tree>

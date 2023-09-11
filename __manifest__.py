@@ -21,5 +21,6 @@
         "views/location.xml",
         "views/product_template.xml",
         "views/product_stage.xml",
+        "views/grading_profile.xml",
     ],
 }

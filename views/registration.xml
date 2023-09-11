@@ -7,6 +7,11 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <h1>
+                        <div class="d-flex">
+                            Registration 
+                        </div>
+                    </h1>
                     <group>
                         <field name="product" string="Course" />
                         <field name="student" />
@@ -15,16 +20,15 @@
                     <notebook>
                         <page string="Attendance">
                             <field name="attendance_ids">
-                                <tree string="Tree String">
-                                    <field name="session" />
-                                    <field name="start_date" />
+                                <tree create="false" delete="false">
+                                    <field name="date_time" />
                                     <field name="present" />
                                 </tree>
                             </field>
                         </page>
                         <page string="Grades">
                             <field name="grade_ids">
-                                <tree string="Tree String">
+                                <tree create="false" delete="false">
                                     <field name="test" />
                                     <field name="grade" />
                                 </tree>
@@ -40,7 +44,8 @@
         <field name="name">cm.registration.tree</field>
         <field name="model">cm.registration</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree default_order='create_date desc'>
+                <field name="create_date" />
                 <field name="product" />
                 <field name="student" />
             </tree>

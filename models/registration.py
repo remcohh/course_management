@@ -13,6 +13,7 @@ class CmRegistration(models.Model):
     attendance_ids = fields.One2many('cm.attendance', 'registration')
     grade_ids = fields.One2many('cm.grade', 'registration')
 
+
     @api.depends('student', 'product')
     def _compute_fields_combination(self):
         for t in self:
@@ -24,10 +25,9 @@ class CmRegistration(models.Model):
         sessions = self.env['cm.session'].search(
             [('product', '=', registration.product.id), ('date_time', '>', datetime.now().strftime('%Y-%m-%d 00:00:00'))])
         if sessions:
-            AttendanceModel = self.env['cm.attendance']
-            attendance_records = []
             for session in sessions:
-                attendance_records.append(AttendanceModel.create(
-                    {"registration": registration.id, "session": session.id}))
+                self.env['cm.attendance'].create({"registration": registration.id, "session": session.id})
+                if session.test:
+                    self.env['cm.grade'].create({"registration": registration.id, "session": session.id, "grade": 0})
         return registration            
 

@@ -12,12 +12,27 @@
             </xpath>
         </field>
     </record>
+    
+    <record id="view_cm_template_addon" model="ir.ui.view">
+        <field name="name">view.template.addon</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Course management.">
+                    <group>
+                        <field name="grading_profile"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
 
     <menuitem
-    id="menu_cm_ecommerce_products"
-    name="Course templates"
-    sequence="5"
-    action="action_cm_ecommerce_products"
-    parent="menu_cm_root"
+        id="menu_cm_ecommerce_products"
+        name="Course templates"
+        sequence="5"
+        action="action_cm_ecommerce_products"
+        parent="menu_cm_root"
 />
 </odoo>
