@@ -10,7 +10,7 @@
                     <group>
                         <field name="session" />
                         <field name="grading_profile" attrs="{'invisible': 1}"  />
-                        <field name="test" domain="[('grading_profile', '=', grading_profile)]" />
+                        <field name="test" domain="[('grading_profiles', '=', 'grading_profile')]" />
                         <field name="grade" />
                     </group>
                 </sheet>
@@ -23,7 +23,8 @@
         <field name="model">cm.grade</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="session" />
+                <field name="student" />
+                <field name="product" />
                 <field name="test" />
                 <field name="grade" />
             </tree>

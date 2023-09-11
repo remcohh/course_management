@@ -8,9 +8,9 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="grading_profile" />
                         <field name="title" />
                         <field name="description" options="{'codeview': true}" />
+                        <field name="grading_profiles" />
                     </group>
                 </sheet>
             </form>
@@ -22,7 +22,6 @@
         <field name="model">cm.test</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="grading_profile" />
                 <field name="title" />
             </tree>
         </field>

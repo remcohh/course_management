@@ -10,16 +10,9 @@
                     <group>
                         <field name="name"/>
                         <field name="allowed_absence_sessions" />
+                        <field name="tests"/>
                     </group>
-                    <notebook>
-                        <page string="Tests">
-                            <field name="tests">
-                                <tree>
-                                    <field name="title" />
-                                </tree>
-                            </field>
-                        </page>                        
-                    </notebook>
+
                 </sheet>
             </form>
         </field>

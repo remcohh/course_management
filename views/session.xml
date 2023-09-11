@@ -21,7 +21,7 @@
                         </group>
                         <group>
                             <field name="teacher" />
-                            <field name="test" domain="[('grading_profile', '=', grading_profile)]"/>
+                            <field name="test" domain="[('grading_profiles', '=', grading_profile)]"/>
                         </group>
                     </group>
                     <notebook>
