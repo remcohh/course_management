@@ -15,6 +15,7 @@
                     </h1>
                     <group>
                         <field name="student_type" />
+                        <field name="state" />
                     </group>
                     <notebook>
                         <page string="Cursussen">
@@ -43,6 +44,8 @@
             <tree>
                 <field name="partner" />
                 <field name="student_type" />
+                <field name="state" />
+
             </tree>
         </field>
     </record>

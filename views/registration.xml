@@ -15,7 +15,10 @@
                     <group>
                         <field name="product" string="Course" />
                         <field name="student" />
-                        <field name="status" />
+                        <field name="average_grade" attrs="{'readonly':1}" />
+                        <field name="sessions_absent" attrs="{'readonly':1}" />
+                        <field name="passed" />
+
                     </group>
                     <notebook>
                         <page string="Attendance">
@@ -48,6 +51,7 @@
                 <field name="create_date" />
                 <field name="product" />
                 <field name="student" />
+                <field name="passed" />
             </tree>
         </field>
     </record>
