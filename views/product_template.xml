@@ -12,8 +12,9 @@
             </xpath>
         </field>
     </record>
-    
-    <record id="view_cm_template_addon" model="ir.ui.view">
+
+    <record
+        id="view_cm_template_addon" model="ir.ui.view">
         <field name="name">view.template.addon</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
@@ -21,7 +22,7 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Course management.">
                     <group>
-                        <field name="grading_profile"/>
+                        <field name="grading_profile" />
                     </group>
                 </page>
             </xpath>
@@ -34,5 +35,5 @@
         sequence="5"
         action="action_cm_ecommerce_products"
         parent="menu_cm_root"
-/>
+    />
 </odoo>
