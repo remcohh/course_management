@@ -1,12 +1,8 @@
 <odoo>
     <data>
         <template id="products_item_conditional" inherit_id="website_sale.products_item">
-            <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="replace">
+            <xpath expr="//div[hasclass('product_price')]" position="replace">
                 <t t-if="request.env.user.name!='Public user'">
-                    <t t-set="template_price_vals" t-value="get_product_prices(product)" />
-                    <div class="o_wsale_product_btn" />
-                    <div class="product_price" itemprop="offers" itemscope="itemscope"
-                        itemtype="http://schema.org/Offer">
                         <t t-if="'base_price' in template_price_vals">
                             <del t-attf-class="text-muted me-1 h6 mb-0" style="white-space: nowrap;">
                                 <em class="small" t-esc="template_price_vals['base_price']"
@@ -23,7 +19,6 @@
                             t-esc="template_price_vals['price_reduce']" />
                         <span itemprop="priceCurrency" style="display:none;"
                             t-esc="website.currency_id.name" />
-                    </div>
                 </t>
                 <t t-if="request.env.user.name=='Public user'">
                     <div>
@@ -32,7 +27,7 @@
                 </t>
             </xpath>
         </template>
-
+        
         <template id="cm_products_item" inherit_id="website_sale.product_price" active="True">
             <xpath
                 expr="//div[@itemprop='offers' and @itemscope='itemscope' and @itemtype='http://schema.org/Offer']"
@@ -89,7 +84,6 @@
                 </t>
             </xpath>
         </template>
-        
         <template id="cm_product" inherit_id="website_sale.product" active="True">
             <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
                 <t t-if="request.env.user.name=='Public user'">
