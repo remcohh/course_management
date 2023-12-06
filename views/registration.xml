@@ -15,8 +15,8 @@
                     <group>
                         <field name="product" string="Course" />
                         <field name="student" />
-                        <field name="average_grade" attrs="{'readonly':1}" />
-                        <field name="sessions_absent" attrs="{'readonly':1}" />
+                        <field name="average_grade" readonly="1"  />
+                        <field name="sessions_absent" readonly="1"/>
                         <field name="passed" />
 
                     </group>

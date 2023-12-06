@@ -9,7 +9,7 @@
                 <sheet>
                     <group>
                         <field name="session" />
-                        <field name="grading_profile" attrs="{'invisible': 1}"  />
+                        <field name="grading_profile" invisible="1"   />
                         <field name="test" domain="[('grading_profiles', '=', 'grading_profile')]" />
                         <field name="grade" />
                     </group>
