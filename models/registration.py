@@ -58,3 +58,6 @@ class CmRegistration(models.Model):
                 record.passed = True
             else:
                 record.passed = False
+                
+    def register_waitinglist(self):
+        a=1            

@@ -22,7 +22,8 @@
                 </t>
                 <t t-if="request.env.user.name=='Public user'">
                     <div>
-                        <a href='/prices'>Information about our prices</a>
+                        <!-- <a href='/prices'>Information about our prices</a> -->
+                        <span t-esc="product.price_range()"/>
                     </div>
                 </t>
             </xpath>
@@ -84,6 +85,7 @@
                 </t>
             </xpath>
         </template>
+        
         <template id="cm_product" inherit_id="website_sale.product" active="True">
             <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
                 <t t-if="request.env.user.name=='Public user'">
@@ -100,5 +102,6 @@
                 </t>
             </xpath>
         </template>
+
     </data>
 </odoo>
